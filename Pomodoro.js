@@ -25,7 +25,18 @@ function timeCheck(i){// adds a zero infront of the time if it is less than 10
 	return i;
 }
 
-function plusIt(){
+function startClick(){
+	$("#startBtn").click(function(){
+		$(this).html() == "Start!" ? $(this).html("Stop!") : $(this).html("Start!");
+		$("#hourglass").toggleClass( "fa-spin" );
+		console.log(Date.now());
+	});
+}
+
+
+
+
+function plusIt(){// adds to break and session timer
 $("#sessionPlus").click(function(){
 	sessionTimer++;
 	document.getElementById("sessionTime").innerHTML = sessionTimer + " Mins";
@@ -37,7 +48,7 @@ $("#breakPlus").click(function(){
 	});
 };
 
-function minusIt(){
+function minusIt(){// subtracts from break and session timer
 $("#sessionMinus").click(function(){
 	sessionTimer--;
 	document.getElementById("sessionTime").innerHTML = sessionTimer + " Mins";
@@ -56,6 +67,7 @@ $(document).ready(function(){
 	timeCheck();
 	plusIt();
 	minusIt();
+	startClick();
 	document.getElementById("sessionTime").innerHTML = sessionTimer + " Mins";
 	document.getElementById("breakTime").innerHTML = breakTimer + " Mins";
 });
