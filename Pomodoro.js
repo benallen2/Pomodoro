@@ -1,3 +1,4 @@
+
 var sessionTimer = 25;
 var breakTimer = 5;
 
@@ -26,14 +27,11 @@ function timeCheck(i){// adds a zero infront of the time if it is less than 10
 }
 
 function startClick(){
-	$("#startBtn").click(function(){
+	$("#startBtn").click(function(){//changes the start to Stop, spins hourglass
 		$(this).html() == "Start!" ? $(this).html("Stop!") : $(this).html("Start!");
 		$("#hourglass").toggleClass( "fa-spin" );
-		console.log(Date.now());
 	});
 }
-
-
 
 
 function plusIt(){// adds to break and session timer
@@ -60,14 +58,56 @@ $("#breakMinus").click(function(){
 	});
 };
 
+function countDown(duration, text){
+	var startTime = Date.now();
+	var difference;
+	var minutes;
+	var seconds;
+
+	
+	function timer(){
+		difference = duration - (((Date.now() - startTime) / 1000) | 0);
+
+		minutes = (difference / 60) | 0;
+		seconds = (difference % 60) | 0;
+
+		minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        text.textContent = minutes + ":" + seconds;
+
+        if (difference <= 0){// adds a second to start exactly at SessionTimer start
+        	startTime = Date.Now() + 1000;
+        }
+	};
+	timer();
+	setInterval(timer, 1000);	
+
+}
 
 
 $(document).ready(function(){
+	var sessionText = $("#sessionTime").html();
+	var sessionTimer = parseInt(sessionText, 10);
 	currentTime();
 	timeCheck();
 	plusIt();
 	minusIt();
 	startClick();
 	document.getElementById("sessionTime").innerHTML = sessionTimer + " Mins";
-	document.getElementById("breakTime").innerHTML = breakTimer + " Mins";
+	document.getElementById("breakTime").innerHTML = breakTimer + " Mins";	
+
+
+	
+
+	$("#startBtn").click(function(){
+		var duration = parseInt($("#sessionTime").html()) * 60;
+		text = document.querySelector("#timer")
+		countDown(duration, text);
+		
+	})
+
 });
+
+
+
