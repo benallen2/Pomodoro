@@ -1,4 +1,24 @@
-.btn{
-	margin-left: 50px;
-	width: 100px;
+.fillCircle {
+  position: relative;
+  //display:block;
+  height: 150px;
+  width: 150px;
+  margin: 10px 7px;
+  padding: 5px 5px;
+  color: #383736;
+  border: 2px #383736 solid;
+  border-radius: 50%;
+  text-transform: uppercase;
+  outline: 0;
+  overflow:hidden;
+  background: yellow;
+  -webkit-transition: all 1s ease-in-out;
+-moz-transition: all 1s ease-in-out;
+-o-transition: all 1s ease-in-out;
+-ms-transition: all 1s ease-in-out;
+transition: all 1s ease-in-out;
+}
+
+.red{
+	background: red;
 }

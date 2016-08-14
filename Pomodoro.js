@@ -65,7 +65,7 @@ function countDown(duration, text){
 	var seconds;
 
 	
-	function timer(){
+	function sessionTimer(){
 		difference = duration - (((Date.now() - startTime) / 1000) | 0);
 
 		minutes = (difference / 60) | 0;
@@ -76,35 +76,35 @@ function countDown(duration, text){
 
         text.textContent = minutes + ":" + seconds;
 
-        if (difference <= 0){// adds a second to start exactly at SessionTimer start
-        	startTime = Date.Now() + 1000;
-        }
 	};
-	timer();
-	setInterval(timer, 1000);	
+	sessionTimer();
+	setInterval(sessionTimer, 1000);
 
 }
 
 
+function transitionfunc(){// color change transition
+	var x = (parseInt($("#sessionTime").html()) * 60 );
+	document.getElementById("fillCircle").style.WebkitTransitionDuration = x + "s";
+	document.getElementById("fillCircle").style.transitionDuration = x + "s";
+}
+
 $(document).ready(function(){
-	var sessionText = $("#sessionTime").html();
-	var sessionTimer = parseInt(sessionText, 10);
+
 	currentTime();
 	timeCheck();
 	plusIt();
 	minusIt();
 	startClick();
-	document.getElementById("sessionTime").innerHTML = sessionTimer + " Mins";
-	document.getElementById("breakTime").innerHTML = breakTimer + " Mins";	
-
-
-	
 
 	$("#startBtn").click(function(){
+		var breakDur = parseInt($("#breakTime").html()) * 60;
 		var duration = parseInt($("#sessionTime").html()) * 60;
-		text = document.querySelector("#timer")
+		text = document.querySelector("#timer");
 		countDown(duration, text);
-		
+		var here = $(".fillCircle");
+		here.toggleClass("red");
+		transitionfunc();
 	})
 
 });

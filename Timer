@@ -15,8 +15,16 @@
 		<script src="timer.js" rel = "stylesheet" type="text/javascript"></script>
 	</head>
 <body>
-	<div class="clock">
-	<div class="text-center" id="wtf">25 Mins</div>
-	</div>
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-2">
+			<div class="fillCircle" id="fillCircle">
+					<div class="timerText">
+					
+					</div>
 
+			</div>
+		</div>	
+	</div>
+	<h2 class="timer" id="timer">25</h2>
+	<div class="btn btn-default">Start</div>
 </body>
