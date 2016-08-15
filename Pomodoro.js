@@ -75,10 +75,12 @@ function countDown(duration, text){
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         text.textContent = minutes + ":" + seconds;
-
+			if (minutes == "00" && seconds == "00"){
+					clearInterval(stopper);
+				}
 	};
-	sessionTimer();
-	setInterval(sessionTimer, 1000);
+
+	var stopper = setInterval(sessionTimer, 1000);
 
 }
 

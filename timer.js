@@ -1,35 +1,42 @@
-
-function getit(session){
-	var start = Date.now();
-	var duration = session * 60000;
-	var finish = start + duration;
-	var diff = duration - (((Date.now() - start) / 1000) | 0);
-	console.log(diff);
-	console.log(start);
-	console.log(finish);
-	if (finish < start){
-		alert("Done");
-		}
+function setDur(){
 
 }
 
 
 
+function countDown(duration, text, callback){
+	var startTime = Date.now();
+	var difference;
+	var minutes;
+	var seconds;
 
+	
+	function sessionTimer(){
+		difference = duration - (((Date.now() - startTime) / 1000) | 0);
 
-var x = 5;
+		minutes = (difference / 60) | 0;
+		seconds = (difference % 60) | 0;
+
+		minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        text.textContent = minutes + ":" + seconds;
+			if (minutes == "00" && seconds == "00"){
+					clearInterval(check);
+				}
+	};
+	
+
+	var check = setInterval(sessionTimer, 1000);
+	
+}
+
 
 $(document).ready(function(){
-
-
 	$(".btn").click(function(){
-		var here = $(".fillCircle");
-		here.toggleClass("red");
-		myfunc();
-	});
+		var breakDur = parseInt($("#breakTime").html()) * 60;
+		var duration = parseInt($("#timer").html()) * 60;
+		text = document.querySelector("#countdown");
+		countDown(duration, text);
+	})
 })
-
-function myfunc(){
-	document.getElementById("fillCircle").style.WebkitTransitionDuration = x + "s";
-	document.getElementById("fillCircle").style.transitionDuration = x + "s";
-}

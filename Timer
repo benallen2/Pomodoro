@@ -10,7 +10,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 		<meta name="viewport" content="width=device-width">
 		<meta charset="UTF-8">
-		<title>Pomodoro Timer</title>
+		<title>Timer</title>
 		<link href="timer.css" rel="stylesheet" type="text/css">
 		<script src="timer.js" rel = "stylesheet" type="text/javascript"></script>
 	</head>
@@ -18,13 +18,11 @@
 	<div class="row">
 		<div class="col-xs-8 col-xs-offset-2">
 			<div class="fillCircle" id="fillCircle">
-					<div class="timerText">
-					
-					</div>
-
 			</div>
 		</div>	
 	</div>
-	<h2 class="timer" id="timer">25</h2>
+	<h2 class="timer" id="timer">3</h2>
+	<h2 class="breakTimer" id="breakTimer">2</h2>
+	<h2 class="countdown" id="countdown"></h2>
 	<div class="btn btn-default">Start</div>
 </body>
