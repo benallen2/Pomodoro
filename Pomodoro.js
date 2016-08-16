@@ -106,7 +106,7 @@ $(document).ready(function(){
 		countDown(duration, text);
 		var here = $(".fillCircle");
 		here.toggleClass("red");
-		transitionfunc();
+		//transitionfunc();
 	})
 
 });
