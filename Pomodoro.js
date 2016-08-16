@@ -168,7 +168,7 @@ $(document).ready(function(){
 		for(var i = 0; i < timeouts.length; i++){
 			clearInterval(timeouts[i]);
 		}
-	})
+	});
 
 });
 
