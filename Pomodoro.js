@@ -125,7 +125,7 @@ var a = function countDown(duration, text){
         }
 	};
 	transitionfunc();
-	var check = setInterval(sessionTimer, 1000);
+	var check = setInterval(sessionTimer, 1);
 	timeouts.push(check);
 }
 

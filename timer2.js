@@ -1,10 +1,10 @@
 var Timer = function(){
-	var count =  0; //milleseconds
+	var count =  0; //seconds
 	var run =  false;
 	var onBreak = false;
 	
 	this.set = function(minutes){
-		count = 1000 * minutes;
+		count = 60 * minutes;
 	};
 
 	this.start = function(){
@@ -12,7 +12,7 @@ var Timer = function(){
 					if((count > 0) && (run) ){
 						count--;
 					}
-				}, 1);
+				}, 1000);
 	
 	};
 	
@@ -35,16 +35,15 @@ var Timer = function(){
 	}
 
 	this.get = function(){
-		
-		minutes = Math.floor(count / 60 / 1000);
-		seconds = Math.floor(count / 1000) % 60;
+		console.log(count);
+		minutes = Math.floor(count / 60);
+		seconds = count % 60;
 
 		minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
 
         var display = minutes + ":" + seconds;
-
 		//TODO format output or make 2 functions this.getMinutes() this.getSeconds()
 		return display;
 	

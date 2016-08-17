@@ -35,7 +35,7 @@
 	$(document).ready(function(){
 		var t = new Timer(); // create new timer object (constructor in timer2.js)
 		
-		t.set($("#timer").html() * 60); // set interval in minutes
+		t.set($("#timer").html()); // set interval in minutes
 		t.start(); // must trigger first here, but run is still false until button pressed
 
 		$("#Start").click(function(){
@@ -43,7 +43,7 @@
 		});
 
 		$("#Reset").click(function(){
-			t.set($("#timer").html() * 60);
+			t.set($("#timer").html());
 		});
 
 		setInterval(function(){
@@ -52,15 +52,15 @@
 			// this might be moved to the timer2.js somehow
 			if(t.get() === 0){
 				if(t.getOnBreak() === true){
-					t.set($("#breakTimer").html() * 60); // grab this variable from the page
+					t.set($("#breakTimer").html()); // grab this variable from the page
 					t.toggleBreak();
 				}
 				else {
-					t.set($("#timer").html() * 60); // grab this variable from page
+					t.set($("#timer").html()); // grab this variable from page
 					t.toggleBreak();
 				}
 			}
-		}, 1);
+		}, 100);
 
 })
 	</script>
