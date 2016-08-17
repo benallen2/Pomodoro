@@ -23,13 +23,10 @@
 			</div>
 		</div>	
 	</div>
-	<h2 class="timer" id="timer">5</h2>
-	<h2 class="breakTimer" id="breakTimer">10</h2>
+	<h2 class="timer" id="timer">1</h2>
+	<h2 class="breakTimer" id="breakTimer">2</h2>
 	<h2 class="countdown" id="countdown"></h2>
-<<<<<<< HEAD:Timer
-	<div class="btn btn-default" id="start">Start</div>
-	<div class="btn btn-default" id="stop">Stop</div>
-=======
+
 	<div id = "Start" class="btn btn-default">Start/Stop</div>
 	<div id = "Reset" class="btn btn-default">Reset</div>
 
@@ -38,7 +35,7 @@
 	$(document).ready(function(){
 		var t = new Timer(); // create new timer object (constructor in timer2.js)
 		
-		t.set(3); // set interval in minutes
+		t.set($("#timer").html() * 60); // set interval in minutes
 		t.start(); // must trigger first here, but run is still false until button pressed
 
 		$("#Start").click(function(){
@@ -46,7 +43,7 @@
 		});
 
 		$("#Reset").click(function(){
-			t.set(3);
+			t.set($("#timer").html() * 60);
 		});
 
 		setInterval(function(){
@@ -55,18 +52,16 @@
 			// this might be moved to the timer2.js somehow
 			if(t.get() === 0){
 				if(t.getOnBreak() === true){
-					t.set(3); // grab this variable from the page
+					t.set($("#breakTimer").html() * 60); // grab this variable from the page
 					t.toggleBreak();
 				}
 				else {
-					t.set(2); // grab this variable from page
+					t.set($("#timer").html() * 60); // grab this variable from page
 					t.toggleBreak();
 				}
 			}
-		},1);
+		}, 1);
 
 })
 	</script>
-
->>>>>>> f87b537aef9d7dad674ea303b13be2b7aafb00af:Timer.html
 </body>
